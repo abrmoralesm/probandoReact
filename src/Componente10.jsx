@@ -75,7 +75,7 @@ const Componente10 = () => {
           <p>Artist: {selectedPainting.artistDisplayName}</p>
           <p>Artist Bio: {selectedPainting.artistDisplayBio}</p>
           <p>Department: {selectedPainting.department}</p>
-          <p>Object Date: {selectedPainting.objectDate}</p>
+          <p>Objecta Date: {selectedPainting.objectDate}</p>
         </div>
       )}
     </div>
