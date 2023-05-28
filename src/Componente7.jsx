@@ -32,7 +32,7 @@ const Componente7 = ({ titulo, datos }) => {
     <div>
       <h1>{titulo}</h1>
 
-      <button onClick={handlePrevious}>Retroceder</button>
+      <button onClick={handlePrevious}>Retrocede</button>
       <button onClick={handleNext}>Avanzar</button>
 
       {renderCurrentData()}

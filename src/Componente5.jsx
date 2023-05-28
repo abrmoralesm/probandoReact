@@ -25,7 +25,7 @@ const Componente5 = ({ titulo }) => {
         />
       </label>
       <label>
-        Apellido:
+        Apellidos:
         <input
           value={formulario.apellido}
           onChange={(e) => {
