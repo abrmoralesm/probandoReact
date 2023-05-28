@@ -12,6 +12,8 @@ import Componente9 from "./Componente9";
 import Componente10 from "./Componente10";
 import Componente11 from "./Componente11";
 import Componente12 from "./Componente12";
+import Componente13 from "./Componente13";
+
 
 
 
@@ -22,7 +24,14 @@ const App = ()=>{
       <div style={{ padding: "50px" }}>
         <Componente1 datos={datos} titulo='Componente1 Lista Map' />
         <Componente2 datos={datos} titulo='Componente2 Lista Filtrada' />
-        <Componente3 titulo='Componente 3 Lista MAP con archivo dentro' />
+        <Componente13
+          datos={datos}
+          titulo='Lista filtrando datos desde componente1'
+        />
+        <Componente3
+          datos={datos}
+          titulo='Componente 3 Lista MAP con archivo dentro'
+        />
         <Componente4 titulo='Componente 4 Botón USESTATE' />
         <Componente5 titulo='Componente 5 Formulario' />
         <Componente6 titulo='Componente 6 Imagenes' />

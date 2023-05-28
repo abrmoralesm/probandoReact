@@ -3,6 +3,7 @@ import { useState } from "react";
 
 const Componente4 =({titulo}) =>{
     const [numero, setNumero] = useState(0);
+  
     function handleClick(){
         setNumero(numero+1);
     }
@@ -35,6 +36,7 @@ const Componente4 =({titulo}) =>{
           Has pulsado {numero} veces
         </button>
         {condicion ? <p>Hola</p> : <p>Adios</p>}
+        
       </div>
     );
 }

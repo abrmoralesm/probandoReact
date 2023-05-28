@@ -16,5 +16,5 @@ return (
 );
 }
 
-export default Componente2
+export default Componente2;
 
