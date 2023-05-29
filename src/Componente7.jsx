@@ -1,41 +1,37 @@
 import React, { useState } from "react";
 
 const Componente7 = ({ titulo, datos }) => {
-  const [currentIndex, setCurrentIndex] = useState(null);
+  const [indice, setIndice] = useState(0);
 
-  const handleNext = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === null || prevIndex === datos.length - 1 ? 0 : prevIndex + 1
-    );
-  };
-
-  const handlePrevious = () => {
-    setCurrentIndex((prevIndex) =>
-      prevIndex === null || prevIndex === 0 ? datos.length - 1 : prevIndex - 1
-    );
-  };
-
-  const renderCurrentData = () => {
-    if (currentIndex === null) {
-      return <p>Pulsa el botón</p>;
+  const avanzar = () => {
+    if (indice < datos.length - 1) {
+      setIndice(indice + 1);
+    } else {
+      setIndice(0);
     }
-    return (
-      <div>
-        <p>
-          {datos[currentIndex].nombre} - {datos[currentIndex].edad} años
-        </p>
-      </div>
-    );
   };
 
+  const retroceder = () => {
+    if (indice > 0) {
+      setIndice(indice - 1);
+    } else {
+      setIndice(datos.length - 1);
+    }
+  };
+  const { nombre, edad } = datos[indice];
   return (
     <div>
-      <h1>{titulo}</h1>
-
-      <button onClick={handlePrevious}>Retrocede</button>
-      <button onClick={handleNext}>Avanzar</button>
-
-      {renderCurrentData()}
+      <h2>{titulo}</h2>
+      <button onClick={retroceder}>Retroceder</button>
+      <button onClick={avanzar}>Avanzar</button>
+      <div>
+        <div>
+          <p>
+            {nombre} - {edad}
+          </p>
+          <p></p>
+        </div>
+      </div>
     </div>
   );
 };

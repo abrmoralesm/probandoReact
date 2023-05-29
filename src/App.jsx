@@ -8,11 +8,8 @@ import Componente5 from "./Componente5";
 import Componente6 from "./Componente6";
 import Componente7 from "./Componente7";
 import Componente8 from "./Componente8";
-import Componente9 from "./Componente9";
-import Componente10 from "./Componente10";
-import Componente11 from "./Componente11";
-import Componente12 from "./Componente12";
-import Componente13 from "./Componente13";
+
+
 
 
 
@@ -24,10 +21,7 @@ const App = ()=>{
       <div style={{ padding: "50px" }}>
         <Componente1 datos={datos} titulo='Componente1 Lista Map' />
         <Componente2 datos={datos} titulo='Componente2 Lista Filtrada' />
-        <Componente13
-          datos={datos}
-          titulo='Lista filtrando datos desde componente1'
-        />
+
         <Componente3
           datos={datos}
           titulo='Componente 3 Lista MAP con archivo dentro'
@@ -36,11 +30,12 @@ const App = ()=>{
         <Componente5 titulo='Componente 5 Formulario' />
         <Componente6 titulo='Componente 6 Imagenes' />
         <Componente7 datos={datos} titulo='Componente7 Lista Map con Botones' />
-        <Componente8 />
-        <Componente9 />
-        <Componente10 />
-        <Componente11 />
-        <Componente12 />
+
+        <Componente8
+          datos={datos}
+          titulo='Componente 8.Lista filtrando datos desde componente1'
+        />
+   
       </div>
     );
 };

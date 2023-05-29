@@ -1,28 +1,15 @@
-import React, { useEffect, useState } from "react";
-import { getDepartments } from "./MetropolitanApi";
+import React from "react";
+import Componente1 from "./Componente1";
 
-const Componente8 = () => {
-  const [departments, setDepartments] = useState([]);
-
-  useEffect(() => {
-    const fetchDepartments = async () => {
-      const data = await getDepartments();
-      setDepartments(data);
-    };
-
-    fetchDepartments();
-  }, []);
+const Componente13 = ({ titulo, datos }) => {
+  const datosFiltrados = datos.filter((dato) => dato.edad > 20);
 
   return (
     <div>
-      <h1>Llamada a la API</h1>
-      <ul>
-        {departments.map((department) => (
-          <li key={department.departmentId}>{department.displayName}</li>
-        ))}
-      </ul>
+      <h1>{titulo}</h1>
+      <Componente1  datos={datosFiltrados} />
     </div>
   );
 };
 
-export default Componente8;
+export default Componente13;
