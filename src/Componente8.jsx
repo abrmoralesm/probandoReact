@@ -2,7 +2,7 @@ import React from "react";
 import Componente1 from "./Componente1";
 
 const Componente13 = ({ titulo, datos }) => {
-  const datosFiltrados = datos.filter((dato) => dato.edad > 20);
+  const datosFiltrados = datos.filter((dato) => dato.edad > 35);
 
   return (
     <div>
