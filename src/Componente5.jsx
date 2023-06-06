@@ -1,6 +1,4 @@
-import React from "react";
-import { useState } from "react";
-
+import React, { useState } from "react";
 
 const Componente5 = ({ titulo }) => {
   const [formulario, setFormulario] = useState({
@@ -8,6 +6,15 @@ const Componente5 = ({ titulo }) => {
     apellido: "Apellido",
     email: "email",
   });
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormulario({
+      ...formulario,
+      [name]: value,
+    });
+  };
+
   return (
     <div>
       <h1>{titulo}</h1>
@@ -15,41 +22,29 @@ const Componente5 = ({ titulo }) => {
       <label>
         Nombre:
         <input
+          name='nombre'
           value={formulario.nombre}
-          onChange={(e) => {
-            setFormulario({
-              ...formulario,
-              nombre: e.target.value,
-            });
-          }}
+          onChange={handleInputChange}
         />
       </label>
       <label>
         Apellidos:
         <input
+          name='apellido'
           value={formulario.apellido}
-          onChange={(e) => {
-            setFormulario({
-              ...formulario,
-              apellido: e.target.value,
-            });
-          }}
+          onChange={handleInputChange}
         />
       </label>
       <label>
         Email:
         <input
+          name='email'
           value={formulario.email}
-          onChange={(e) => {
-            setFormulario({
-              ...formulario,
-              email: e.target.value,
-            });
-          }}
+          onChange={handleInputChange}
         />
       </label>
       <p>
-        {formulario.nombre} - {formulario.apellido} - {formulario.email}
+       Nombre: {formulario.nombre} - Apellido{formulario.apellido} - Edad:{formulario.email}
       </p>
     </div>
   );

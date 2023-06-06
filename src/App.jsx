@@ -8,6 +8,7 @@ import Componente5 from "./Componente5";
 import Componente6 from "./Componente6";
 import Componente7 from "./Componente7";
 import Componente8 from "./Componente8";
+import Componente9 from "./Componente9";
 
 
 
@@ -30,11 +31,11 @@ const App = ()=>{
         <Componente5 titulo='Componente 5 Formulario' />
         <Componente6 titulo='Componente 6 Imagenes' />
         <Componente7 datos={datos} titulo='Componente7 Lista Map con Botones' />
-
-        <Componente8
+       <Componente8
           datos={datos}
           titulo='Componente 8.Lista filtrando datos desde componente1'
         />
+        <Componente9 datos={datos} titulo="Componente9. Form" />
    
       </div>
     );
