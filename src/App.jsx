@@ -9,6 +9,7 @@ import Componente6 from "./Componente6";
 import Componente7 from "./Componente7";
 import Componente8 from "./Componente8";
 import Componente9 from "./Componente9";
+import Componente10 from "./Componente10"
 
 
 
@@ -36,6 +37,7 @@ const App = ()=>{
           titulo='Componente 8.Lista filtrando datos desde componente1'
         />
         <Componente9 datos={datos} titulo="Componente9. Form" />
+        <Componente10 titulo="Componente 10. useState False" />
    
       </div>
     );

@@ -16,8 +16,8 @@ const Componente6 =({titulo})=>{
         <img src={imagenes.img3} />
         <br></br>
         { /* Imagenes con imagenes2 */}
-        <h2>{imagenes2[1].title}</h2>
-        <img src={imagenes2[1].img} />
+        <h2>{imagenes2[2].title}</h2>
+        <img src={imagenes2[2].img} />
       </div>
     );
 }

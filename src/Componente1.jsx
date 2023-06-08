@@ -1,8 +1,8 @@
 import React from "react";
 
-const Componente1 = ({titulo, datos}) =>{
 
-    return (
+const Componente1 = ({titulo, datos})=>{
+    return(
         <div>
             <h1>{titulo}</h1>
             <ul>

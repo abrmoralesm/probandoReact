@@ -1,4 +1,3 @@
-
 import pikachu from "./images/pikachu.png";
 import kubone from "./images/kubone.jpeg"
 import eevee from "./images/eevee.jpeg"

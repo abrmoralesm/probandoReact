@@ -1,29 +1,26 @@
 import React, { useState } from "react";
 
 const Componente9 = ({ titulo, datos }) => {
-  const [formulario, setFormulario] = useState({
-    nombre: "",
-    edad: "",
-  });
+  const [nombre, setNombre] = useState("");
+  const [edad, setEdad] = useState("");
 
   const handleInputChange = (e) => {
-    setFormulario({
-      ...formulario,
-      [e.target.name]: e.target.value,
-    });
+    if (e.target.name === "nombre") {
+      setNombre(e.target.value);
+    } else if (e.target.name === "edad") {
+      setEdad(e.target.value);
+    }
   };
 
   const agregarNombre = () => {
     const nuevoDato = {
       id: datos.length + 1,
-      nombre: formulario.nombre,
-      edad: parseInt(formulario.edad),
+      nombre: nombre,
+      edad: parseInt(edad),
     };
 
-    setFormulario({
-      nombre: "",
-      edad: "",
-    });
+    setNombre("");
+    setEdad("");
 
     datos.push(nuevoDato);
   };
@@ -33,23 +30,21 @@ const Componente9 = ({ titulo, datos }) => {
       <h1>{titulo}</h1>
       <label>
         Nombre:
-        <input
-          name='nombre'
-          value={formulario.nombre}
-          onChange={handleInputChange}
-        />
+        <input 
+         name='nombre'
+         value={nombre} 
+         onChange={handleInputChange} />
       </label>
       <label>
         Edad:
-        <input
-          name='edad'
-          value={formulario.edad}
-          onChange={handleInputChange}
-        />
+        <input 
+        name='edad' 
+        value={edad} 
+        onChange={handleInputChange} />
       </label>
       <button onClick={agregarNombre}>Agregar</button>
       <p>
-        Nombre: {formulario.nombre} - Edad: {formulario.edad}
+        Nombre: {nombre} - Edad: {edad}
       </p>
       <ul>
         {datos.map(({ id, nombre, edad }) => (
@@ -58,6 +53,7 @@ const Componente9 = ({ titulo, datos }) => {
           </li>
         ))}
       </ul>
+    
     </div>
   );
 };

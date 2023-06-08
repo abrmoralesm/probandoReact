@@ -1,24 +1,24 @@
-import React, { useState } from "react";
+import React from "react";
+import { useState } from "react";
 
-const Componente5 = ({ titulo }) => {
-  const [formulario, setFormulario] = useState({
-    nombre: "Nombre",
-    apellido: "Apellido",
-    email: "email",
+const Componente5 = ({titulo}) =>{
+
+const [formulario, setFormulario] = useState({
+  nombre: "",
+  apellido: "",
+  email: "",
+});
+const handleInputChange = (e) =>{
+  const{name,value}= e.target
+  setFormulario({
+    ...formulario,
+    [name]: value,
   });
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormulario({
-      ...formulario,
-      [name]: value,
-    });
-  };
+}
 
   return (
     <div>
       <h1>{titulo}</h1>
-
       <label>
         Nombre:
         <input
@@ -28,7 +28,7 @@ const Componente5 = ({ titulo }) => {
         />
       </label>
       <label>
-        Apellidos:
+        Apellido:
         <input
           name='apellido'
           value={formulario.apellido}
@@ -44,10 +44,10 @@ const Componente5 = ({ titulo }) => {
         />
       </label>
       <p>
-       Nombre: {formulario.nombre} - Apellido{formulario.apellido} - Edad:{formulario.email}
+        {formulario.nombre} - {formulario.apellido} - {formulario.email}
       </p>
     </div>
   );
-};
+}
 
-export default Componente5;
+export default Componente5
