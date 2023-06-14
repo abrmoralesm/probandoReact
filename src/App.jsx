@@ -9,7 +9,9 @@ import Componente6 from "./Componente6";
 import Componente7 from "./Componente7";
 import Componente8 from "./Componente8";
 import Componente9 from "./Componente9";
-import Componente10 from "./Componente10"
+import Componente10 from "./Componente10";
+import Componente11 from "./Componente11";
+import Componente12 from "./Componente12";
 
 
 
@@ -17,7 +19,11 @@ import Componente10 from "./Componente10"
 
 
 const App = ()=>{
+ const handleButtonClick = () => {
+   // Lógica de la función
+   console.log("Se hizo clic en el botón desde App.jsx");
  
+ };
  
     return (
       <div style={{ padding: "50px" }}>
@@ -32,15 +38,18 @@ const App = ()=>{
         <Componente5 titulo='Componente 5 Formulario' />
         <Componente6 titulo='Componente 6 Imagenes' />
         <Componente7 datos={datos} titulo='Componente7 Lista Map con Botones' />
-       <Componente8
+        <Componente8
           datos={datos}
           titulo='Componente 8.Lista filtrando datos desde componente1'
         />
-        <Componente9 datos={datos} titulo="Componente9. Form" />
-        <Componente10 titulo="Componente 10. useState False" />
-   
+        <Componente9 datos={datos} titulo='Componente9. Form' />
+        <Componente10 titulo='Componente 10. useState False' />
+        <Componente11 onClick={handleButtonClick} />
+        <Componente12 titulo="Componente 12. Añadiendo datos desde componente1" />
       </div>
     );
 };
 
 export default App;
+
+
