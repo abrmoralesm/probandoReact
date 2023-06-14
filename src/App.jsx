@@ -12,6 +12,7 @@ import Componente9 from "./Componente9";
 import Componente10 from "./Componente10";
 import Componente11 from "./Componente11";
 import Componente12 from "./Componente12";
+import Componente13 from "./Componente13"
 
 
 
@@ -46,6 +47,7 @@ const App = ()=>{
         <Componente10 titulo='Componente 10. useState False' />
         <Componente11 onClick={handleButtonClick} />
         <Componente12 titulo="Componente 12. Añadiendo datos desde componente1" />
+        <Componente13 titulo="Componente 13. Condicional, useState y useEffect" />
       </div>
     );
 };

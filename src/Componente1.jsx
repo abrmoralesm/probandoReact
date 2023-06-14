@@ -37,13 +37,13 @@ const Componente1 = ({ titulo, datos }) => {
         />
       </label>
       <p>{formu.Apodo}</p>
-      <ul>
-        {datos.map(({ id, nombre, edad }) => (
-          <li key={id}>
-            {nombre} - {edad}
-          </li>
-        ))}
-      </ul>
+  <ul>
+    {datos.map(({id,nombre,edad})=>(
+      <li key={id}>
+        {nombre} - {edad}
+      </li>
+    ))}
+  </ul>
       <button onClick={handleFormReset}>Limpiar formulario</button>
     </Estilando>
   );
