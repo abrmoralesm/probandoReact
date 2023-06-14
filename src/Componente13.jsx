@@ -1,14 +1,15 @@
 import React, { useState, useEffect } from "react";
 
 const Componente13 = ({ titulo }) => {
-  const [estado, setEstado] = useState("Encendido");
+  const [estado, setEstado] = useState("Apagado");
   const [contador, setContador] = useState(-2);
 
-  const handleClic = () => {
-     setEstado((prevEstado) =>
-       prevEstado === "Encendido" ? "Apagado" : "Encendido"
-     );
-  };
+ const handleClic = ()=>{
+    setEstado((prevEstado)=>
+    prevEstado === "Apagado" ? "Encandido" : "Apagado")
+ }
+
+ 
 
   useEffect(() => {
     setContador((prevContador) => prevContador + 1);
