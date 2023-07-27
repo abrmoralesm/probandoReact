@@ -20,3 +20,11 @@ export const Estilando = styled.div`
     color: green;
   }
 `;
+
+export const Button = styled.button`
+  background-color: red;
+
+  &:hover {
+    background-color: green;
+  }
+`;

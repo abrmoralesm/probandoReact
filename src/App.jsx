@@ -13,6 +13,9 @@ import Componente10 from "./Componente10";
 import Componente11 from "./Componente11";
 import Componente12 from "./Componente12";
 import Componente13 from "./Componente13"
+import Componente14 from "./Componente14"
+import Componente15 from "./Componente15"
+
 
 
 
@@ -20,15 +23,19 @@ import Componente13 from "./Componente13"
 
 
 const App = ()=>{
+
  const handleButtonClick = () => {
    // Lógica de la función
    console.log("Se hizo clic en el botón desde App.jsx");
  
  };
+ const jander = ()=>{
+  alert("JAR")
+ }
  
     return (
       <div style={{ padding: "50px" }}>
-        <Componente1 datos={datos} titulo='Componente1 Lista Map' />
+        <Componente1 datos={datos} titulo='Componente1 Lista Map' boton={jander}/>
         <Componente2 datos={datos} titulo='Componente2 Lista Filtrada' />
 
         <Componente3
@@ -48,6 +55,8 @@ const App = ()=>{
         <Componente11 onClick={handleButtonClick} />
         <Componente12 titulo="Componente 12. Añadiendo datos desde componente1" />
         <Componente13 titulo="Componente 13. Condicional, useState y useEffect" />
+        <Componente14 titulo="Componente 14. Formulario con botón" />
+        <Componente15 titulo="Componente 15.Fetch" />
       </div>
     );
 };

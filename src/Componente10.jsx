@@ -2,10 +2,11 @@ import { useState } from "react";
 import React from "react";
 
 const Componente10 = ({ titulo }) => {
-const [stateCar, setStateCar]= useState(false);
-const encenderApagar =()=>{
-    setStateCar(prevValue=>!prevValue)
+const [stateCar, setStateCar] = useState(false);
+const encenderApagar = ()=>{
+  setStateCar(prevValue=>!prevValue)
 }
+
 
     
     return (

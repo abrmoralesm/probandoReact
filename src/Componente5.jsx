@@ -7,15 +7,16 @@ const Componente5 = ({ titulo }) => {
     email: "email",
   });
 
-  
+ const handleInputChange = (e) =>{
+  const {name, value} = e.target
+  setFormulario({
+    ...formulario,
+    [name]: value
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setFormulario({
-      ...formulario,
-      [name]: value,
-    });
-  };
+  })
+ }
+
+
 
   return (
     <div>

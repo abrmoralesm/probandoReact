@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import {Button} from "./StyledComponente11"
 
 const Componente13 = ({ titulo }) => {
   const [estado, setEstado] = useState("Apagado");
@@ -10,15 +11,15 @@ const Componente13 = ({ titulo }) => {
  }
 
  
-
   useEffect(() => {
-    setContador((prevContador) => prevContador + 1);
+    setContador((contador) => contador + 1);
   }, [estado]);
 
   return (
     <div>
       <h1>{titulo}</h1>
-      <button onClick={handleClic}>{estado}</button>
+      <Button onClick={handleClic}>{estado}</Button>
+      <p>{estado}</p>
       <p>Veces pulsado: {contador}</p>
     </div>
   );
