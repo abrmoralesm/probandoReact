@@ -1,0 +1,36 @@
+
+.pokemon-list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.pokemon-card {
+    width: 200px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      
+}
+
+.pokemon-card img {
+    margin-bottom: 10px;
+}
+ul{list-style:none;}
+.pokemon-card ul {
+    padding: 0;
+    list-style: none;
+}
+
+.pokemon-card ul li {
+    margin-bottom: 5px;
+}
+
+img {
+    width:100px
+};

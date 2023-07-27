@@ -15,6 +15,11 @@ import Componente12 from "./Componente12";
 import Componente13 from "./Componente13"
 import Componente14 from "./Componente14"
 import Componente15 from "./Componente15"
+import Componente16 from "./Componente16"
+import Componente17 from "./Componente17"
+
+
+
 
 
 
@@ -57,6 +62,8 @@ const App = ()=>{
         <Componente13 titulo="Componente 13. Condicional, useState y useEffect" />
         <Componente14 titulo="Componente 14. Formulario con botón" />
         <Componente15 titulo="Componente 15.Fetch" />
+        <Componente16 titulo="Componente 16. Axios" />
+        <Componente17 titulo="Componente 17. 10 primeros pokemons" />
       </div>
     );
 };
