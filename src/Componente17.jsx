@@ -11,60 +11,83 @@ const Componente17 = ({ titulo }) => {
     return `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${index}.png`;
   };
 
-  const getPokemonAbilities = (url) => {
-    return axios.get(url).then((res) => res.data.abilities);
-  };
-
   const [pokemonList, setPokemonList] = useState([]);
   const [pokemonAbilities, setPokemonAbilities] = useState({});
+  const [pokemonData, setPokemonData] = useState([]);
+  const [startPokemonIndex, setStartPokemonIndex] = useState(1);
+  const [endPokemonIndex, setEndPokemonIndex] = useState(12);
 
   useEffect(() => {
-    axios.get("https://pokeapi.co/api/v2/pokemon?limit=12").then((res) => {
+    axios.get("https://pokeapi.co/api/v2/pokemon?limit=900").then((res) => {
       setPokemonList(res.data.results);
     });
   }, []);
 
   useEffect(() => {
+    const selectedPokemons = pokemonList.slice(
+      startPokemonIndex - 1,
+      endPokemonIndex
+    );
     Promise.all(
-      pokemonList.map((pokemon, index) =>
-        getPokemonAbilities(pokemon.url).then((abilities) => ({
-          [pokemon.name]: abilities.map((ability) => ability.ability.name),
-        }))
+      selectedPokemons.map((pokemon) =>
+        axios.get(pokemon.url).then((res) => {
+          setPokemonData((prevData) => ({
+            ...prevData,
+            [pokemon.name]: res.data.base_experience,
+          }));
+          setPokemonAbilities((prevAbilities) => ({
+            ...prevAbilities,
+            [pokemon.name]: res.data.abilities.map(
+              (ability) => ability.ability.name
+            ),
+          }));
+        })
       )
-    ).then((abilitiesArray) => {
-      const abilitiesObject = Object.assign({}, ...abilitiesArray);
-      setPokemonAbilities(abilitiesObject);
-    });
-  }, [pokemonList]);
+    );
+  }, [pokemonList, startPokemonIndex, endPokemonIndex]);
+
+  const handleShowMore = () => {
+    setStartPokemonIndex(endPokemonIndex + 1);
+    setEndPokemonIndex(endPokemonIndex + 12);
+  };
 
   return (
     <>
       <h1>{titulo}</h1>
-      <h2>Lista de los 10 primeros Pokémon:</h2>
+      <h2>
+        Lista de los Pokémon del {startPokemonIndex} al {endPokemonIndex}:
+      </h2>
       <ul className='pokemon-list'>
-        {pokemonList.map((pokemon, index) => (
-          <li className='pokemon-card' key={index}>
-            <div className='info-container'>
-              <img
-                src={getPokemonImageUrl(index + 1)}
-                alt={pokemon.name}
-                
-              />
-              <div>
-                <strong>{capitalizeFirstLetter(pokemon.name)}</strong>
-                <ul>
-                  {pokemonAbilities[pokemon.name] &&
-                    pokemonAbilities[pokemon.name].map(
-                      (ability, abilityIndex) => (
-                        <li key={abilityIndex}>{ability}</li>
-                      )
-                    )}
-                </ul>
+        {pokemonList
+          .slice(startPokemonIndex - 1, endPokemonIndex)
+          .map((pokemon, index) => (
+            <li className='pokemon-card' key={index}>
+              <div className='info-container'>
+                <img
+                  src={getPokemonImageUrl(startPokemonIndex + index)}
+                  alt={pokemon.name}
+                />
+                <div>
+                  <strong>{capitalizeFirstLetter(pokemon.name)}</strong>
+                  <p>Base Experience: {pokemonData[pokemon.name]}</p>
+                  <div className='abilities-container'>
+                    {/* Contenedor para alinear "Habilidades" y la lista */}
+                    <strong>Habilidades:</strong>
+                    <ul>
+                      {pokemonAbilities[pokemon.name] &&
+                        pokemonAbilities[pokemon.name].map(
+                          (ability, abilityIndex) => (
+                            <li key={abilityIndex}>{ability}</li>
+                          )
+                        )}
+                    </ul>
+                  </div>
+                </div>
               </div>
-            </div>
-          </li>
-        ))}
+            </li>
+          ))}
       </ul>
+      <button onClick={handleShowMore}>Mostrar más</button>
     </>
   );
 };

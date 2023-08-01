@@ -34,3 +34,12 @@ ul{list-style:none;}
 img {
     width:100px
 };
+
+.abilities-container {
+    display: flex;
+    align-items: center;
+}
+
+.abilities-container strong {
+    margin-right: 5px;
+}

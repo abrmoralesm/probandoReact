@@ -17,6 +17,7 @@ import Componente14 from "./Componente14"
 import Componente15 from "./Componente15"
 import Componente16 from "./Componente16"
 import Componente17 from "./Componente17"
+import Componente18 from "./Componente18";
 
 
 
@@ -64,6 +65,7 @@ const App = ()=>{
         <Componente15 titulo="Componente 15.Fetch" />
         <Componente16 titulo="Componente 16. Axios" />
         <Componente17 titulo="Componente 17. 10 primeros pokemons" />
+        <Componente18 titulo="Componente 18. PRUEBAS" />
       </div>
     );
 };
