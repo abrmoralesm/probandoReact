@@ -8,9 +8,8 @@ const Componente15 = ({ titulo }) => {
   const [ability, setAbility] = useState(null);
   const [game, setGame] = useState(null);
   
-
-  useEffect(() => {
-    fetch("https://pokeapi.co/api/v2/pokemon/eevee")
+const jander =()=>{
+  fetch("https://pokeapi.co/api/v2/pokemon/eevee")
       .then((res) => res.json())
       .then((res) => {
         setName(res.name);
@@ -22,7 +21,10 @@ const Componente15 = ({ titulo }) => {
     
        
       });
-  }, []);
+  }
+
+  useEffect(jander
+    , []);
 
   return (
     <>
