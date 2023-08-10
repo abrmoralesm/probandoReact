@@ -18,6 +18,8 @@ import Componente15 from "./Componente15"
 import Componente16 from "./Componente16"
 import Componente17 from "./Componente17"
 import Componente18 from "./Componente18";
+import Componente19 from "./Componente19"
+import Componente20 from "./Componente20"
 
 
 
@@ -41,7 +43,11 @@ const App = ()=>{
  
     return (
       <div style={{ padding: "50px" }}>
-        <Componente1 datos={datos} titulo='Componente1 Lista Map' boton={jander}/>
+        <Componente1
+          datos={datos}
+          titulo='Componente1 Lista Map'
+          boton={jander}
+        />
         <Componente2 datos={datos} titulo='Componente2 Lista Filtrada' />
 
         <Componente3
@@ -59,13 +65,15 @@ const App = ()=>{
         <Componente9 datos={datos} titulo='Componente9. Form' />
         <Componente10 titulo='Componente 10. useState False' />
         <Componente11 onClick={handleButtonClick} />
-        <Componente12 titulo="Componente 12. Añadiendo datos desde componente1" />
-        <Componente13 titulo="Componente 13. Condicional, useState y useEffect" />
-        <Componente14 titulo="Componente 14. Formulario con botón" />
-        <Componente15 titulo="Componente 15.Fetch" />
-        <Componente16 titulo="Componente 16. Axios" />
-        <Componente17 titulo="Componente 17. 10 primeros pokemons" />
-        <Componente18 titulo="Componente 18. PRUEBAS" />
+        <Componente12 titulo='Componente 12. Añadiendo datos desde componente1' />
+        <Componente13 titulo='Componente 13. Condicional, useState y useEffect' />
+        <Componente14 titulo='Componente 14. Formulario con botón' />
+        <Componente15 titulo='Pokémon' />
+        <Componente16 titulo='Componente 16. Axios' />
+        <Componente17 titulo='Componente 17. 10 primeros pokemons' />
+        <Componente18 titulo='Componente 18. PRUEBAS' />
+        <Componente19 titulo='Componente 19. Imagen Random NASA' />
+        <Componente20 titulo='Componente 20. Imagen NASA Del Día' />
       </div>
     );
 };

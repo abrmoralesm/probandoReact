@@ -1,41 +1,46 @@
 import React, { useState, useEffect } from "react";
 
 const Componente15 = ({ titulo }) => {
-  const [name, setName] = useState(null);
-  const [imageUrl, setImageUrl] = useState(null);
-  const [imageUrl1, setImageUrl1] = useState(null);
-  const [imageShiny, setImageShiny] = useState(null);
-  const [ability, setAbility] = useState(null);
-  const [game, setGame] = useState(null);
-  
-const jander =()=>{
-  fetch("https://pokeapi.co/api/v2/pokemon/eevee")
+  const [pokemonData, setPokemonData] = useState(null);
+  const pokemonName = "eevee"; // Nombre del Pokémon que deseas mostrar
+
+  useEffect(() => {
+    const apiUrl = `https://pokeapi.co/api/v2/pokemon/${pokemonName}`;
+
+    fetch(apiUrl)
       .then((res) => res.json())
       .then((res) => {
-        setName(res.name);
-        setImageUrl(res.sprites.front_default);
-        setImageUrl1(res.sprites.back_default);
-        setImageShiny(res.sprites.other.home.front_shiny_female);
-        setAbility(res.abilities[1].ability.name)
-        setGame(res.game_indices[0].version.name)
-    
-       
+        setPokemonData({
+          name: res.name,
+          images: {
+            frontDefault: res.sprites.front_default,
+            backDefault: res.sprites.back_default,
+            shinyFemale: res.sprites.other.home.front_shiny_female,
+          },
+          ability: res.abilities[1].ability.name,
+          game: res.game_indices[0].version.name,
+        });
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
       });
+  }, []);
+
+  if (!pokemonData) {
+    return <div>Loading...</div>;
   }
 
-  useEffect(jander
-    , []);
+  const { name, images, ability, game } = pokemonData;
 
   return (
     <>
       <h1>{titulo}</h1>
       <p>Name: {name}</p>
-      {imageUrl && <img src={imageUrl} alt='Eevee' />}
-      {imageUrl1 && <img src={imageUrl1} alt='Eevee' />}
-      {imageShiny && <img src={imageShiny} alt='Eevee' />}
+      {images.frontDefault && <img src={images.frontDefault} alt={name} />}
+      {images.backDefault && <img src={images.backDefault} alt={name} />}
+      {images.shinyFemale && <img src={images.shinyFemale} alt={name} />}
       {ability && <p>Ability: {ability}</p>}
       {game && <p>Game: {game}</p>}
-      
     </>
   );
 };

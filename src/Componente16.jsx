@@ -6,9 +6,9 @@ const Componente16 = ({ titulo }) => {
   const [officialArtworkUrl, setOfficialArtworkUrl] = useState(null);
   const [homeUrl, setHomeUrl] = useState(null);
   const [officialFemale, setOfficialFemale] = useState(null);
-
+const apiURL = `https://pokeapi.co/api/v2/pokemon/eevee`;
   useEffect(() => {
-    axios.get("https://pokeapi.co/api/v2/pokemon/eevee").then((res) => {
+    axios.get(apiURL).then((res) => {
       setName(res.data.name);
       setOfficialArtworkUrl(
         res.data.sprites.other["official-artwork"].front_default
