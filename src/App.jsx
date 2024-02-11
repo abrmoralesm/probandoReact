@@ -20,6 +20,12 @@ import Componente17 from "./Componente17"
 import Componente18 from "./Componente18";
 import Componente19 from "./Componente19"
 import Componente20 from "./Componente20"
+import Componente21 from "./Componente21"
+import Componente0 from "./Componente0"
+import ComponentePrueba from "./ComponentePrueba";
+import ComponentePrueba2 from "./ComponentePrueba2";
+import PokemonComponent from "./PokemonComponent";
+
 
 
 
@@ -43,6 +49,14 @@ const App = ()=>{
  
     return (
       <div style={{ padding: "50px" }}>
+        <ComponentePrueba
+        titulo='Prueba Técnica' />
+        <ComponentePrueba2
+        titulo="PROBANDO ANDO" />
+        <PokemonComponent />
+      <Componente0 
+      datos={datos}
+      titulo="Componente 0. Pruebas a Tutiplen" />
         <Componente1
           datos={datos}
           titulo='Componente1 Lista Map'
@@ -68,12 +82,14 @@ const App = ()=>{
         <Componente12 titulo='Componente 12. Añadiendo datos desde componente1' />
         <Componente13 titulo='Componente 13. Condicional, useState y useEffect' />
         <Componente14 titulo='Componente 14. Formulario con botón' />
-        <Componente15 titulo='Pokémon' />
+        <Componente15 titulo='Componente 15. Pokeapi' />
         <Componente16 titulo='Componente 16. Axios' />
         <Componente17 titulo='Componente 17. 10 primeros pokemons' />
         <Componente18 titulo='Componente 18. PRUEBAS' />
         <Componente19 titulo='Componente 19. Imagen Random NASA' />
         <Componente20 titulo='Componente 20. Imagen NASA Del Día' />
+        <Componente21 datos= {datos} titulo='Componente 21' />
+       
       </div>
     );
 };

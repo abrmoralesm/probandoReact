@@ -1,25 +1,21 @@
 import React, { useState } from "react";
 
 const Componente5 = ({ titulo }) => {
+
   const [formulario, setFormulario] = useState({
     nombre: "nombre",
     apellidos: "apellidos",
     email: "email",
   });
-
- const handleInputChange = (e) =>{
-  const {name, value} = e.target
-  setFormulario({
-    ...formulario,
-    [name]: value
-
-  })
- }
-
-
-
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormulario({
+      ...formulario,
+      [name]: value,
+    });
+  };
   return (
-    <div>
+    <>
       <h1>{titulo}</h1>
       <label>
         Nombre:
@@ -29,7 +25,6 @@ const Componente5 = ({ titulo }) => {
           onChange={handleInputChange}
         />
       </label>
-
       <label>
         Apellidos:
         <input
@@ -49,7 +44,7 @@ const Componente5 = ({ titulo }) => {
       <p>
         {formulario.nombre} - {formulario.apellidos} - {formulario.email}
       </p>
-    </div>
+    </>
   );
 };
 
