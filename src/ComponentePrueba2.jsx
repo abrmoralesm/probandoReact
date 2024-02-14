@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from "react";
 
+
 const APIUrl = "https://catfact.ninja/fact";
 const CAT_PREFIX_IMAGE_URL = "https://cataas.com";
 const APIChiste = "https://api.chucknorris.io/jokes/random";
@@ -43,7 +44,7 @@ const ComponentePrueba2 = ({titulo}) =>{
         <>
         <h1>{titulo}</h1>
         <p>{fact}</p>
-        {imgURL &&(<img src={`${CAT_PREFIX_IMAGE_URL}${imgURL}`}/>)}
+        {imgURL &&(<img src={`${CAT_PREFIX_IMAGE_URL}${imgURL}`} alt={`${CAT_PREFIX_IMAGE_URL}${imgURL}`}/>)}
         <p>{chiste}</p>
        
         </>

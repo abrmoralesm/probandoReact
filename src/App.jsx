@@ -25,6 +25,7 @@ import Componente0 from "./Componente0"
 import ComponentePrueba from "./ComponentePrueba";
 import ComponentePrueba2 from "./ComponentePrueba2";
 import PokemonComponent from "./PokemonComponent";
+import ProbandoApi from "./ProbandoApi";
 
 
 
@@ -49,10 +50,12 @@ const App = ()=>{
  
     return (
       <div style={{ padding: "50px" }}>
+        <ProbandoApi
+        titulo="Probando Api" />
         <ComponentePrueba
         titulo='Prueba Técnica' />
         <ComponentePrueba2
-        titulo="PROBANDO ANDO" />
+        titulo="Componente prueba2" />
         <PokemonComponent />
       <Componente0 
       datos={datos}

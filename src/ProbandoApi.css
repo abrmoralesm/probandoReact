@@ -1,0 +1,44 @@
+.container {
+    display: flex;
+    justify-content: center;
+}
+
+.datos-container {
+    width: 400px;
+  
+    justify-content: center;
+
+    align-items: center;
+    margin: 0 10px;
+    /* Espacio entre los contenedores */
+}
+.imagen-container {
+    width: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 10px;
+    /* Espacio entre los contenedores */
+}
+.imagen-container {
+    width: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 10px;
+    /* Espacio entre los contenedores */
+}
+
+.datos-container {
+    background-color: #fcefee;
+    text-align: center;
+    /* Para centrar horizontalmente el texto */
+}
+
+.imagen-container {
+    background-color: #b8e3ff;
+}
+
+.imagen-container img {
+    max-width: 100%;
+}

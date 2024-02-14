@@ -33,7 +33,7 @@ const ComponentePrueba = ({ titulo }) => {
       {imageUrl && (
         <img
           src={`${CAT_PREFIX_IMAGE_URL}${imageUrl}`}
-          alt={`Image for ${fact}`}
+          alt="Cat saying something"
         />
       )}
     </>
