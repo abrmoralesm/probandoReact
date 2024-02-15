@@ -26,6 +26,7 @@ import ComponentePrueba from "./ComponentePrueba";
 import ComponentePrueba2 from "./ComponentePrueba2";
 import PokemonComponent from "./PokemonComponent";
 import ProbandoApi from "./ProbandoApi";
+import PruebaTecnica from "./PruebaTecnica";
 
 
 
@@ -50,6 +51,7 @@ const App = ()=>{
  
     return (
       <div style={{ padding: "50px" }}>
+        <PruebaTecnica titulo="Prueba Tecnica"/>
         <ProbandoApi
         titulo="Probando Api" />
         <ComponentePrueba

@@ -1,48 +1,48 @@
-import React, { useState, useEffect } from "react";
+import React,{useState, useEffect} from "react";
+const PokeName ="eevee";
+const PokeUrl = `https://pokeapi.co/api/v2/pokemon/${PokeName}`;
 
-const pokename = "pikachu";
-const PokeURL = `https://pokeapi.co/api/v2/pokemon/${pokename}`;
+const ProbandoApi=({titulo}) =>{
 
-const ProbandoApi = ({ titulo }) => {
-  const [pokeDatos, setPokeDatos] = useState(null);
+    const [pokeDatos, setPokeDatos] = useState(null);
 
-  useEffect(() => {
-    fetch(PokeURL)
-      .then((res) => res.json())
-      .then((datos) => {
-        setPokeDatos({
-          name: datos.name,
-          order: datos.order,
-          abilities: datos.abilities,
-          image: datos.sprites.back_shiny,
-        });
-      });
-  }, []);
+const PokeConst= ()=>{
+        fetch(PokeUrl)
+        .then(res=>res.json())
+        .then(datos=>{
+            setPokeDatos({
+              name: datos.name,
+              habilidades: datos.abilities,
+              imagenes: {
+                macho: datos.sprites.front_default,
+                hembra: datos.sprites.other.home.front_shiny,
+              },
+            });
+        })
+    }
 
-  if (!pokeDatos) {
-    return <div>...CARGANDO...</div>;
-  }
+    useEffect( PokeConst,[])
 
-  const { name, order, abilities, image } = pokeDatos;
+if(!pokeDatos){
+    return<div>...CARGANDO...</div>
+}
 
-  return (
-    <>
-      
+const {name, habilidades, imagenes}=pokeDatos;
+
+//const habilidadesString =habilidades.map(ability=>ability.ability.name).join(", ")
+  const habilidadesString =habilidades.map(jar=>jar.ability.name).join(", ")
+
+
+
+    return (
+        <>
         <h1>{titulo}</h1>
-   
-          <p>Nombre: {name}</p>
-          <p>Orden: {order}</p>
-          <p>Habilidades:</p>
-          <ul>
-            {abilities.map((ability, index) => (
-              <li key={index}>{ability.ability.name}</li>
-            ))}
-          </ul>
+        <p>Nombre: {name}</p>
+        <p>Habilidades: {habilidadesString}</p>
+        <img src={imagenes.macho} alt="Pokemon"/>
+        <img src={imagenes.hembra} alt="Pokemon"/>
+        </>
+    )
+}
 
-        <img src={image} alt='Pikachu' />
-    
-    </>
-  );
-};
-
-export default ProbandoApi;
+export default ProbandoApi
