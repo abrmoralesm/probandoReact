@@ -1,51 +1,48 @@
-import React, { useState } from "react";
+import React, {useState} from "react";
+
+
 
 const Componente9 = ({ titulo, datos }) => {
-  const [nombre, setNombre] = useState("");
-  const [edad, setEdad] = useState("");
+  const [nuevoDato, setNuevoDato] = useState({ nombre: "", edad: "" });
 
   const handleInputChange = (e) => {
-    if (e.target.name === "nombre") {
-      setNombre(e.target.value);
-    } else if (e.target.name === "edad") {
-      setEdad(e.target.value);
-    }
+    const { name, value } = e.target;
+    setNuevoDato((prevDato) => ({ ...prevDato, [name]: value }));
   };
 
   const agregarNombre = () => {
-    const nuevoDato = {
+    if (!nuevoDato.nombre || isNaN(nuevoDato.edad)) {
+      alert("Por favor, ingrese un número válido en el campo de edad.");
+      return;
+    }
+    setNuevoDato({ nombre: "", edad: "" });
+    datos.push({
       id: datos.length + 1,
-      nombre: nombre,
-      edad: parseInt(edad),
-    };
-
-    setNombre("");
-    setEdad("");
-
-    datos.push(nuevoDato);
+      nombre: nuevoDato.nombre,
+      edad: parseInt(nuevoDato.edad),
+    });
   };
 
   return (
-    <div>
+    <>
       <h1>{titulo}</h1>
       <label>
         Nombre:
-        <input 
-         name='nombre'
-         value={nombre} 
-         onChange={handleInputChange} />
+        <input
+          name='nombre'
+          value={nuevoDato.nombre}
+          onChange={handleInputChange}
+        />
       </label>
       <label>
         Edad:
-        <input 
-        name='edad' 
-        value={edad} 
-        onChange={handleInputChange} />
+        <input
+          name='edad'
+          value={nuevoDato.edad}
+          onChange={handleInputChange}
+        />
       </label>
       <button onClick={agregarNombre}>Agregar</button>
-      <p>
-        Nombre: {nombre} - Edad: {edad}
-      </p>
       <ul>
         {datos.map(({ id, nombre, edad }) => (
           <li key={id}>
@@ -53,9 +50,9 @@ const Componente9 = ({ titulo, datos }) => {
           </li>
         ))}
       </ul>
-    
-    </div>
+    </>
   );
 };
 
 export default Componente9;
+

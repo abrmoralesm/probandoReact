@@ -6,6 +6,7 @@ const Componente0 = ({ titulo }) => {
   const [errorMessage, setErrorMessage] = useState("");
 
 
+
   const handleFormSubmit = (e) => {
     e.preventDefault();
 
@@ -37,8 +38,6 @@ const Componente0 = ({ titulo }) => {
         setErrorMessage("ESE POKEMON NO EXISTE O NO HA SIDO CAZADO AUN");
       });
   };
-
-  
 
 
   return (
