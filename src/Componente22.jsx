@@ -3,7 +3,17 @@ import React, {useState, useEffect} from "react";
 const Componente22 = ({ titulo }) => {
   const [characters, setCharacters] = useState([]);
 
-  useEffect(() => {
+ useEffect(() => {
+   fetch("https://rickandmortyapi.com/api/character")
+     .then((res) => res.json())
+     .then((data) => {
+       setCharacters(data.results); 
+     })
+     .catch((error) => {
+       console.error("Error fetching characters:", error);
+     });
+ }, []); 
+/*
     const fetchCharacters = async () => {
       try {
         const response = await fetch(
@@ -18,7 +28,7 @@ const Componente22 = ({ titulo }) => {
 
     fetchCharacters();
   }, []);
-
+*/
   return (
     <div>
         <h1>{titulo}</h1>
