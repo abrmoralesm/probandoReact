@@ -27,6 +27,7 @@ import ComponentePrueba2 from "./ComponentePrueba2";
 import PokemonComponent from "./PokemonComponent";
 import ProbandoApi from "./ProbandoApi";
 import PruebaTecnica from "./PruebaTecnica";
+import Componente22 from "./Componente22";
 
 
 
@@ -94,6 +95,7 @@ const App = ()=>{
         <Componente19 titulo='Componente 19. Imagen Random NASA' />
         <Componente20 titulo='Componente 20. Imagen NASA Del Día' />
         <Componente21 datos= {datos} titulo='Componente 21' />
+        <Componente22 titulo='Componente22 API RICK & MORTY' />
        
       </div>
     );

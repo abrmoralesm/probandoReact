@@ -1,23 +1,4 @@
-import React, {useState, useEffect} from "react";
 
-const PruebaTecnica =({titulo}) =>{
-
-    const [nom, setNom] = useState("");
-    const [nomData, setNomData] = useState(null);
-    const [errorMessage, setErrorMesage] = useState("");
-
-    const handleSubmite= (e)=>{
-        
-    }
-
-    return(
-        <>
-        <h1>{titulo}</h1>
-        </>
-    )
-}
-export default PruebaTecnica;
-/*
 
 import React, { useState } from "react";
 
@@ -48,7 +29,7 @@ const PruebaTecnica = ({ titulo }) => {
       .catch((error) => {
         console.error("Error fetching data:", error);
         setNomData(null);
-        setErrorMessage("ESE POKEMON NO EXISTE O NO HA SIDO CAZADO AUN");
+        setErrorMessage(`${nom}  NO EXISTE `);
       });
   };
 
@@ -57,7 +38,7 @@ const PruebaTecnica = ({ titulo }) => {
       <h1>{titulo}</h1>
       <form onSubmit={handleSubmit}>
         <label>
-          Nombre del Pokémon:
+          Nombre figura:
           <input
             type='text'
             value={nom}
@@ -80,4 +61,3 @@ const PruebaTecnica = ({ titulo }) => {
 
 export default PruebaTecnica;
 
-*/

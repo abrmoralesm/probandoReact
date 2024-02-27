@@ -16,7 +16,7 @@ const apiURL = `https://pokeapi.co/api/v2/pokemon/eevee`;
       setHomeUrl(res.data.sprites.other["home"].front_default);
       setOfficialFemale(res.data.sprites.other["home"].front_female);
     });
-  }, []);
+  });
 
   return (
     <>

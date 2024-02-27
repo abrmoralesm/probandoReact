@@ -13,7 +13,10 @@ const encenderApagar = ()=>{
       <div>
         <h1>{titulo}</h1>
         <h3>El coche está: {stateCar ? "Encencido" : "Apagado"}</h3>
-        <button onClick={encenderApagar}>JANDER</button>
+        <button onClick={encenderApagar}>
+          {" "}
+          {stateCar ? "Apagar" : "Encender"}
+        </button>
       </div>
     );
 };

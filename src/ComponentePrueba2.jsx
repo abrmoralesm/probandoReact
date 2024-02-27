@@ -1,4 +1,27 @@
-import React, {useState, useEffect} from "react";
+import React, {useState} from "react";
+
+const ComponentePrueba2 =({titulo})=>{
+const APIChiste = "https://api.chucknorris.io/jokes/random";
+const [fact, setFact] = useState(null)
+
+const chisteRandom = ()=>{
+  fetch (APIChiste)
+  .then((res)=>res.json())
+  .then((data)=>
+ { setFact(data.value);
+});
+};
+  return(
+    <>
+    <h1>{titulo}</h1>
+  
+    {fact && <p>{fact}</p>}
+    <button onClick={chisteRandom}>OTRO</button>
+    </>
+  )
+}
+export default ComponentePrueba2
+/* import React, {useState, useEffect} from "react";
 
 
 const APIUrl = "https://catfact.ninja/fact";
@@ -52,3 +75,5 @@ const ComponentePrueba2 = ({titulo}) =>{
     
 }
 export default ComponentePrueba2
+
+*/
