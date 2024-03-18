@@ -9,15 +9,15 @@ const Componente6 =({titulo})=>{
         <h1>{titulo}</h1>
 
         {/*/Forma más simpre */}
-        <img src={Pikachu}></img>
+        <img src={Pikachu} alt='imagen'></img>
         <br></br>
-        <img src={imagenes.img1} />
-        <img src={imagenes.img2} />
-        <img src={imagenes.img3} />
+        <img src={imagenes.img1} alt='imagen' />
+        <img src={imagenes.img2} alt='imagen' />
+        <img src={imagenes.img3} alt='imagen' />
         <br></br>
-        { /* Imagenes con imagenes2 */}
+        {/* Imagenes con imagenes2 */}
         <h2>{imagenes2[2].title}</h2>
-        <img src={imagenes2[2].img} />
+        <img src={imagenes2[2].img} alt='imagen' />
       </div>
     );
 }

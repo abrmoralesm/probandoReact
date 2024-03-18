@@ -1,26 +1,25 @@
 import React, {useState} from "react";
-
 const ComponentePrueba2 =({titulo})=>{
-const APIChiste = "https://api.chucknorris.io/jokes/random";
-const [fact, setFact] = useState(null)
+   const APIUrl = "https://api.chucknorris.io/jokes/random";
+   const [fact, setFact] = useState(null)
 
-const chisteRandom = ()=>{
-  fetch (APIChiste)
-  .then((res)=>res.json())
-  .then((data)=>
- { setFact(data.value);
-});
-};
-  return(
+   const chisteRandom =()=>{
+    fetch(APIUrl)
+    .then(res=>res.json())
+    .then(data=>{
+      setFact(data.value)
+    })
+   }
+  return (
     <>
-    <h1>{titulo}</h1>
-  
-    {fact && <p>{fact}</p>}
-    <button onClick={chisteRandom}>OTRO</button>
+      <h1>{titulo}</h1>
+      <p>{fact}</p>
+      <button onClick={chisteRandom}>OTRO</button>
     </>
-  )
+  );
 }
-export default ComponentePrueba2
+export default ComponentePrueba2;
+
 /* import React, {useState, useEffect} from "react";
 
 

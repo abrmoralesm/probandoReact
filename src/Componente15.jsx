@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 
 const Componente15 = ({ titulo }) => {
   const [pokeData, setPokeData] = useState(null);
+  const [isLoading, setIsLoading] = useState(true)
   const pokeName = "cubone";
 
   useEffect(() => {
@@ -16,9 +17,10 @@ const Componente15 = ({ titulo }) => {
             front_shiny: data.sprites.front_shiny,
           }
         });
+        setIsLoading(false);
       });
   }, []);
-
+if(isLoading) return <p>Cargando...</p>
   if(!pokeData){
     return <h1>...NO HAY...</h1>
 

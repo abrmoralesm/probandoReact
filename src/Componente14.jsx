@@ -1,3 +1,96 @@
+import React, {useState} from "react";
+
+const Componente14 =({titulo})=>{
+  const [formulario, setFormulario] = useState({
+    nombre:"nombre",
+    apellidos: "apellidos",
+    email:"email",
+  })
+  const [mostrar,setMostrar]= useState({
+    nombre:"",
+    apellidos:"",
+    email:"",  })
+
+    const handleInput =(e)=>{
+      const {name, value} = e.target
+      setFormulario({
+        ...formulario,
+        [name]:value
+      })
+    }
+    const publicarClick=()=>{
+      setMostrar(formulario)
+    }
+  return (
+    <>
+      <h1>{titulo}</h1>
+      <label>
+        Nombre:
+        <input name='nombre' value={formulario.nombre} onChange={handleInput} />
+      </label>
+      <label>
+        email:
+        <input
+          name='email'
+          value={formulario.email}
+          onChange={handleInput}
+        />
+      </label>
+      <label>
+        Nombre:
+        <input name='nombre' value={formulario.nombre} onChange={handleInput} />
+      </label>
+      <button onClick={publicarClick}>Click</button>
+      <p>
+        {mostrar.nombre} - {mostrar.apellidos} - {mostrar.email}
+      </p>
+    </>
+  );
+}
+export default Componente14
+/* 
+import React, {useState} from "react";
+const Componente14= ({titulo})=>{
+
+const [formulario, setFormulario] = useState({
+  nombre: "nombre",
+  apellidos: "apellidos",
+  email: "email",
+});
+const [resultado,setResultado]= useState({
+  nombre:"",
+  apellidos:"",
+  email:"",
+})
+const handleInput =(e)=>{
+  const {name,value}= e.target
+  setFormulario({
+    ...formulario,
+    [name]:value
+  })
+}
+const publicarClick=()=>{
+  setResultado(formulario);
+}
+  return (
+    <>
+      <h1>{titulo} </h1>
+      <label>
+        Nombre:
+        <input
+          name='nombre'
+          value={formulario.nombre}
+          onChange={handleInput}
+        />
+      </label>
+      <button onClick={publicarClick}>Pulsar</button>
+      <p>{resultado.nombre}</p>
+    </>
+  );
+}
+export default Componente14
+
+
 import React, { useState } from "react";
 
 const Componente14 = ({ titulo }) => {
@@ -78,3 +171,4 @@ const Componente14 = ({ titulo }) => {
 };
 
 export default Componente14;
+*/

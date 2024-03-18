@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-const PokemonComponent = () => {
+const PokemonComponent = ({titulo}) => {
   const [pokemonData, setPokemonData] = useState(null);
   const [pokemonIndex, setPokemonIndex] = useState(1);
   const [totalPokemon, setTotalPokemon] = useState(0);
@@ -48,6 +48,7 @@ const PokemonComponent = () => {
 
   return (
     <div>
+      <h1>{titulo}</h1>
       {pokemonData && (
         <div>
           <h2>{pokemonData.name}</h2>

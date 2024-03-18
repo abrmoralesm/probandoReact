@@ -14,7 +14,7 @@ const PruebaTecnica = ({ titulo }) => {
     fetch(apiUrl)
       .then((res) => {
         if (!res.ok) {
-          throw new Error("Pokemon not found");
+          throw new Error("Personaje not found");
         }
         return res.json();
       })

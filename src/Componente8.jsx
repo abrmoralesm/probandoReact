@@ -1,7 +1,7 @@
 import React from "react";
 import Componente1 from "./Componente1";
 
-const Componente13 = ({ titulo, datos }) => {
+const Componente8 = ({ titulo, datos }) => {
   const datosFiltrados = datos.filter((dato) => dato.edad > 35);
 
   return (
@@ -12,4 +12,4 @@ const Componente13 = ({ titulo, datos }) => {
   );
 };
 
-export default Componente13;
+export default Componente8;

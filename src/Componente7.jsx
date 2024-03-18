@@ -1,37 +1,8 @@
-import React, {useState} from "react";
-const Componente7 =({titulo, datos})=>{
-  const [indice, setIndice] = useState(0);
-  const avanzar=()=>{
-    if(indice< datos.length-1){
-      setIndice(indice+1)
-    }else{
-      setIndice(0)
-    }
-  }
-    const retroceder =()=>{
-      if(indice>0){
-        setIndice(indice-1)
-      }else{
-        setIndice(datos.length-1)
-      }
-    
-  }
-   const { nombre, edad } = datos[indice];
-  return (
-    <>
-      <h1>{titulo}</h1>
-      <button onClick={avanzar}>Avanzar</button>
-      <button onClick={retroceder}>Retroceder</button>
-      <p>{nombre} - {edad}</p>
-    </>
-  );
-}
-export default Componente7;
-/* import { useState, useEffect } from "react";
-import { StyledH1 } from "./StyledComponente11";
+import React, { useState } from "react";
 
 const Componente7 = ({ titulo, datos }) => {
   const [indice, setIndice] = useState(0);
+  const [chiste, setChiste] = useState(null);
   const avanzar = () => {
     if (indice < datos.length - 1) {
       setIndice(indice + 1);
@@ -39,15 +10,6 @@ const Componente7 = ({ titulo, datos }) => {
       setIndice(0);
     }
   };
-  /* const avanzar =()=>{
-setIndice((prevIndice)=>(prevIndice < datos.length- 1 ? prevIndice+1:0))
-} */
-
-/* const retroceder =()=>{
-  setIndice((prevIndice)=>(prevIndice > 0 ? prevIndice-1:datos.length-1))
-}
- 
-
   const retroceder = () => {
     if (indice > 0) {
       setIndice(indice - 1);
@@ -56,20 +18,60 @@ setIndice((prevIndice)=>(prevIndice < datos.length- 1 ? prevIndice+1:0))
     }
   };
   const { nombre, edad } = datos[indice];
-  useEffect(() => {
-    document.title = ` ${nombre} ${edad}`;
-  }, [nombre, edad]);
+
+  const otroChiste = () => {
+    fetch("https://api.chucknorris.io/jokes/random")
+      .then((res) => res.json())
+      .then((data) => {
+        setChiste(data.value);
+      });
+  };
 
   return (
-    <div>
-      <StyledH1>{titulo}</StyledH1>
-      <button onClick={retroceder}>Retroceder</button>
+    <>
+      <h1>{titulo}</h1>
+      <button onClick={otroChiste}>Otro</button>
+      <p>{chiste}</p>
       <button onClick={avanzar}>Avanzar</button>
+      <button onClick={retroceder}>Retroceder</button>
       <p>
-        {nombre} - {edad}
+        {nombre}- {edad}
       </p>
-    </div>
+    </>
   );
 };
+export default Componente7;
+/* import React, { useState } from "react";
+const Componente7 = ({ titulo, datos }) => {
+  const [indice, setIndice] = useState(0);
+  const avanzar = () => {
+    if (indice < datos.length - 1) {
+      setIndice(indice + 1);
+    } else {
+      setIndice(0);
+    }
+
+  };
+      const retroceder = () => {
+        if (indice > 0) {
+          setIndice(indice - 1);
+        } else {
+          setIndice(datos.length - 1);
+        }
+      };
+    const { nombre, edad } = datos[indice];
+
+  return (
+    <>
+      <h1>{titulo}</h1>
+      <button onClick={avanzar}>Avanzar</button>
+      <button onClick={retroceder}>Retroceder</button>
+      <h5>
+        {nombre} - {edad}
+      </h5>
+    </>
+  );
+};
+
 export default Componente7;
 */

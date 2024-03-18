@@ -28,6 +28,7 @@ import PokemonComponent from "./PokemonComponent";
 import ProbandoApi from "./ProbandoApi";
 import PruebaTecnica from "./PruebaTecnica";
 import Componente22 from "./Componente22";
+import Entrevista from "./Entevista";
 
 
 
@@ -52,6 +53,7 @@ const App = ()=>{
  
     return (
       <div style={{ padding: "50px" }}>
+        <Entrevista titulo="Entrevista" />
         <PruebaTecnica titulo="Prueba Tecnica"/>
         <ProbandoApi
         titulo="Probando Api" />
@@ -59,7 +61,7 @@ const App = ()=>{
         titulo='Prueba Técnica' />
         <ComponentePrueba2
         titulo="Componente prueba2" />
-        <PokemonComponent />
+        <PokemonComponent titulo="Componente Pokemon" />
       <Componente0 
       datos={datos}
       titulo="Componente 0. Pruebas a Tutiplen" />

@@ -26,7 +26,6 @@ const Componente1 = ({ titulo, datos, boton }) => {
   return (
     <Estilando>
       <h1>{titulo}</h1>
-    
       <label>
         Apodo:
         <input
