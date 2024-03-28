@@ -29,6 +29,7 @@ import ProbandoApi from "./ProbandoApi";
 import PruebaTecnica from "./PruebaTecnica";
 import Componente22 from "./Componente22";
 import Entrevista from "./Entevista";
+import Entrevista2 from "./Entrevista2";
 
 
 
@@ -54,6 +55,7 @@ const App = ()=>{
     return (
       <div style={{ padding: "50px" }}>
         <Entrevista titulo="Entrevista" />
+        <Entrevista2 titulo ="Entrevista2"/>
         <PruebaTecnica titulo="Prueba Tecnica"/>
         <ProbandoApi
         titulo="Probando Api" />

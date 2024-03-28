@@ -1,16 +1,39 @@
-import React, { useState } from "react";
+ import React, { useState, useEffect } from "react";
 
 const Componente14 = ({ titulo }) => {
-  const [formulario, setFormulario] = useState({
-    nombre: "nombre",
-    apellidos: "apellidos",
-    email: "email",
-  });
-  const [mostrar, setMostrar] = useState({
-    nombre: "",
-    apellidos: "",
-    email: "",
-  });
+  const [catFact, setCatFact] = useState("");
+  const GIPHY_KEY = "F5dHjDTmXgGP2lSlnATT6XQmH5hwYou1";
+
+  const [catGif, setCatGif] = useState("");
+  const callGiphy = (string) => {
+    fetch(
+      `https://api.giphy.com/v1/gifs/search?q=${string}&api_key=${GIPHY_KEY}`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        setCatGif(data.data[0].images.original.url);
+      });
+  };
+
+  const callApi = () => {
+    fetch("https://catfact.ninja/fact")
+      .then((res) => res.json())
+      .then((data) => {
+        setCatFact(data.fact || "JARNDER");
+        callGiphy(data?.fact?.split(" ").slice(0, 3).join(" "));
+      });
+  };
+  useEffect(callApi, []);
+
+
+  const initialState = {
+    nombre:"",
+    apellidos:"",
+email:"",}
+
+  const [formulario, setFormulario] = useState(initialState
+  );
+  const [mostrar, setMostrar] = useState(initialState);
   const handleInput = (e) => {
     const { name, value } = e.target;
     setFormulario({
@@ -24,6 +47,14 @@ const Componente14 = ({ titulo }) => {
   return (
     <>
       <h1>{titulo}</h1>
+      <div style={{ display: "flex", alignItems: "center", gap: "20px" }}>
+        <p>{catFact}</p>
+        <img
+          src={catGif}
+          alt='J'
+          style={{ objectFit: "contain", width: "200px", height: "200px" }}
+        /><button onClick={callApi}>Otro gif</button>
+      </div>
       <label>
         Nombre:
         <input name='nombre' value={formulario.nombre} onChange={handleInput} />
@@ -38,10 +69,7 @@ const Componente14 = ({ titulo }) => {
       </label>
       <label>
         Email:
-        <input
-        name="email"
-        value={formulario.email}
-        onChange={handleInput} />
+        <input name='email' value={formulario.email} onChange={handleInput} />
       </label>
 
       <button onClick={hacerClick}>Mostrar</button>
@@ -52,144 +80,4 @@ const Componente14 = ({ titulo }) => {
   );
 };
 export default Componente14;
-/* import React, {useState} from "react";
 
-
-
-const Componente14 =({titulo})=>{
-  const [formulario, setFormulario] = useState({
-    nombre:"nombre",
-    apellidos: "apellidos",
-    email:"email",
-  })
-  const [mostrar,setMostrar]= useState({
-    nombre:"",
-    apellidos:"",
-    email:"",  })
-
-    const handleInput =(e)=>{
-      const {name, value} = e.target
-      setFormulario({
-        ...formulario,
-        [name]:value
-      })
-    }
-    const publicarClick=()=>{
-      setMostrar(formulario)
-    }
-  return (
-    <>
-      <h1>{titulo}</h1>
-      <label>
-        Nombre:
-        <input name='nombre' value={formulario.nombre} onChange={handleInput} />
-      </label>
-      <label>
-        email:
-        <input
-          name='email'
-          value={formulario.email}
-          onChange={handleInput}
-        />
-      </label>
-      <label>
-        Nombre:
-        <input name='nombre' value={formulario.nombre} onChange={handleInput} />
-      </label>
-      <button onClick={publicarClick}>Click</button>
-      <p>
-        {mostrar.nombre} - {mostrar.apellidos} - {mostrar.email}
-      </p>
-    </>
-  );
-}
-export default Componente14
-
-
-
-
-  
-  
-   
-
-import React, { useState } from "react";
-
-const Componente14 = ({ titulo }) => {
-  const [intermediateForm, setIntermediateForm] = useState({
-    nombre: "nombre",
-    apellidos: "apellidos",
-    email: "email",
-  });
-
-  const [formulario, setFormulario] = useState({
-    nombre: "",
-    apellidos: "",
-    email: "",
-  });
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setIntermediateForm({
-      ...intermediateForm,
-      [name]: value,
-    });
-  };
-
-  const handlePublicarClick = () => {
-    setFormulario(intermediateForm);
-  };
-
-    const handleLimpiarClick = () => {
-      setIntermediateForm({
-        nombre: "",
-        apellidos: "",
-        email: "",
-      });
-      setFormulario({
-        nombre: "",
-        apellidos: "",
-        email: "",
-      });
-    };
-
-  return (
-    <div>
-      <h1>{titulo}</h1>
-      <label>
-        Nombre:
-        <input
-          name='nombre'
-          value={intermediateForm.nombre}
-          onChange={handleInputChange}
-        />
-      </label>
-
-      <label>
-        Apellidos:
-        <input
-          name='apellidos'
-          value={intermediateForm.apellidos}
-          onChange={handleInputChange}
-        />
-      </label>
-      <label>
-        Email:
-        <input
-          name='email'
-          value={intermediateForm.email}
-          onChange={handleInputChange}
-        />
-      </label>
-
-      <button onClick={handlePublicarClick}>Publicar</button>
-
-      <p>
-        {formulario.nombre} - {formulario.apellidos} - {formulario.email}
-        <button onClick={handleLimpiarClick}>Limpiar</button>
-      </p>
-    </div>
-  );
-};
-
-export default Componente14;
-*/

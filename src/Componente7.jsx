@@ -3,6 +3,7 @@ import React, { useState } from "react";
 const Componente7 = ({ titulo, datos }) => {
   const [indice, setIndice] = useState(0);
   const [chiste, setChiste] = useState(null);
+const [counter, setCounter] = useState(0);
   const avanzar = () => {
     if (indice < datos.length - 1) {
       setIndice(indice + 1);
@@ -10,6 +11,8 @@ const Componente7 = ({ titulo, datos }) => {
       setIndice(0);
     }
   };
+
+
   const retroceder = () => {
     if (indice > 0) {
       setIndice(indice - 1);
@@ -30,6 +33,9 @@ const Componente7 = ({ titulo, datos }) => {
   return (
     <>
       <h1>{titulo}</h1>
+      <p>Contador :{counter}</p>
+      <button onClick={()=>setCounter(counter +1 )}>Sumar</button>
+      <button onClick={()=>setCounter(counter-1)}>Restar</button>
       <button onClick={otroChiste}>Otro</button>
       <p>{chiste}</p>
       <button onClick={avanzar}>Avanzar</button>
