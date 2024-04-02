@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 
-const Componente19 = () => {
+const Componente19 = ({titulo}) => {
   const [randomApodData, setRandomApodData] = useState(null);
   const [randomDate, setRandomDate] = useState(null);
 
   const startDate = "1995-06-16"; // Fecha en que comenzó APOD
-  const endDate = "2023-08-06"; // Fecha actual
+  const endDate = new Date().toISOString().split("T")[0]; // Fecha actual
 
   useEffect(() => {
     const apiKey = "613CmhLwaHswb51O0SbA2u2HcOiu6BCfn4hePPf6";
@@ -44,7 +44,8 @@ const Componente19 = () => {
   const { date, url, title, explanation } = randomApodData;
 console.log(randomApodData);
   return (
-    <div>
+    <div
+    ><h1>{titulo}</h1>
       <h2>{title}</h2>
       <img src={url} alt='Random APOD' style={{ width: "500px" }} />
       <p>{explanation}</p>
