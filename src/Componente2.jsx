@@ -1,6 +1,25 @@
 import React from "react";
+const Componente2= ({datos,titulo})=>{
+  const datoFiltraditos=datos.filter((dato)=>dato.edad>30)
+  return (
+    <>
+      <h1>{titulo}</h1>
+      {datoFiltraditos.map(({id,nombre,edad})=>(
+        <li key={id}>
+          {nombre} - {edad}
+        </li>
+      ))} 
+    </>
+  );
+}
+export default Componente2;
+
+/*
+import React from "react";
 const Componente2 =({datos, titulo})=>{
  const datosFiltraditos= datos.filter((dato)=>dato.edad>30)
+
+
  return(
     <>
     <h1>{titulo}</h1>
@@ -16,7 +35,7 @@ const Componente2 =({datos, titulo})=>{
 }
 export default Componente2;
 
-
+*/
 
 /*
 

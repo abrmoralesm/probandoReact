@@ -30,6 +30,8 @@ import PruebaTecnica from "./PruebaTecnica";
 import Componente22 from "./Componente22";
 import Entrevista from "./Entevista";
 import Entrevista2 from "./Entrevista2";
+import Usarytirar from "./Usarytirar";
+import BootCamp4 from "./BootCamp4";
 
 
 
@@ -54,6 +56,8 @@ const App = ()=>{
  
     return (
       <div style={{ padding: "50px" }}>
+        <BootCamp4 titulo="Bootcamp 4" />
+        <Usarytirar titulo="USAR Y TIRAR" />
         <Entrevista titulo="Entrevista" />
         <Entrevista2 titulo ="Entrevista2"/>
         <PruebaTecnica titulo="Prueba Tecnica"/>

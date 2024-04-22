@@ -29,12 +29,15 @@ const [counter, setCounter] = useState(0);
         setChiste(data.value);
       });
   };
+  const sumar =()=> {
+    setCounter(counter+1)
+  }
 
   return (
     <>
       <h1>{titulo}</h1>
       <p>Contador :{counter}</p>
-      <button onClick={()=>setCounter(counter +1 )}>Sumar</button>
+      <button onClick={sumar}>Sumar</button>
       <button onClick={()=>setCounter(counter-1)}>Restar</button>
       <button onClick={otroChiste}>Otro</button>
       <p>{chiste}</p>
@@ -81,3 +84,4 @@ const Componente7 = ({ titulo, datos }) => {
 
 export default Componente7;
 */
+

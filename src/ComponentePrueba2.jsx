@@ -1,20 +1,22 @@
 import React, {useState} from "react";
 const ComponentePrueba2 =({titulo})=>{
    const APIUrl = "https://api.chucknorris.io/jokes/random";
-   const [fact, setFact] = useState(null)
+   const [fact, setFact] = useState(null);
+   const [buttonText, setButtonText] = useState("MOSTRAR");
 
    const chisteRandom =()=>{
     fetch(APIUrl)
     .then(res=>res.json())
     .then(data=>{
-      setFact(data.value)
+      setFact(data.value);
+      setButtonText("OTRO");
     })
    }
   return (
     <>
       <h1>{titulo}</h1>
       <p>{fact}</p>
-      <button onClick={chisteRandom}>OTRO</button>
+      <button onClick={chisteRandom}>{buttonText}</button>
     </>
   );
 }

@@ -6,6 +6,7 @@ const PruebaTecnica = ({ titulo }) => {
   const [nom, setNom] = useState("");
   const [nomData, setNomData] = useState(null);
   const [errorMessage, setErrorMessage] = useState("");
+  const [buttonText, setButtonText] = useState("MOSTRAR")
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -24,6 +25,7 @@ const PruebaTecnica = ({ titulo }) => {
           character: data.amiibo[0].character,
           image: data.amiibo[0].image,
         });
+        setButtonText("OTRO")
         setErrorMessage("");
       })
       .catch((error) => {
@@ -45,7 +47,7 @@ const PruebaTecnica = ({ titulo }) => {
             onChange={(e) => setNom(e.target.value)}
           />
         </label>
-        <button type='submit'>MOSTRAR</button>
+        <button type='submit'>{buttonText}</button>
       </form>
       {errorMessage && <p>{errorMessage}</p>}
       {nomData && (
