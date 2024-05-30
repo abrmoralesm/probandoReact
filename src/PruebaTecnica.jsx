@@ -1,5 +1,4 @@
 
-
 import React, { useState } from "react";
 
 const PruebaTecnica = ({ titulo }) => {
@@ -62,4 +61,7 @@ const PruebaTecnica = ({ titulo }) => {
 };
 
 export default PruebaTecnica;
+
+
+
 
