@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./Entrevista.css"
+import "./Entrevista.css";
 
 const Entrevista = ({ titulo }) => {
   // Estado para almacenar la lista de tareas
@@ -51,6 +51,31 @@ const Entrevista = ({ titulo }) => {
     return true;
   });
 
+  // Función para renderizar la lista de tareas
+  const renderTasks = () => {
+    return filteredTasks.map((task) => (
+      <div key={task.id} onClick={() => toggleTask(task.id)}>
+        {/* Mostrar el título de la tarea y aplicar estilo de tachado si está completada */}
+        <span
+          style={{
+            textDecoration: task.completed ? "line-through" : "none",
+          }}
+        >
+          {task.title}
+        </span>
+        {/* Botón para eliminar la tarea */}
+        <button
+          onClick={(e) => {
+            e.stopPropagation();
+            deleteTask(task.id);
+          }}
+        >
+          X
+        </button>
+      </div>
+    ));
+  };
+
   return (
     <div className='Entrevista'>
       <h1>{titulo}</h1>
@@ -66,29 +91,7 @@ const Entrevista = ({ titulo }) => {
         <button onClick={addTask}>Agregar</button>
       </div>
       {/* Lista de tareas */}
-      <div>
-        {filteredTasks.map((task) => (
-          <div key={task.id} onClick={() => toggleTask(task.id)}>
-            {/* Mostrar el título de la tarea y aplicar estilo de tachado si está completada */}
-            <span
-              style={{
-                textDecoration: task.completed ? "line-through" : "none",
-              }}
-            >
-              {task.title}
-            </span>
-            {/* Botón para eliminar la tarea */}
-            <button
-              onClick={(e) => {
-                e.stopPropagation();
-                deleteTask(task.id);
-              }}
-            >
-              X
-            </button>
-          </div>
-        ))}
-      </div>
+      <div>{renderTasks()}</div>
       {/* Botones de filtro */}
       <div>
         <button onClick={() => setFilter("all")}>Todas</button>
