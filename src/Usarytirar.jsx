@@ -1,3 +1,44 @@
+import React, { useState } from "react";
+const Usarytirar=({titulo})=>{
+  const initialState ={
+    nombre:"",
+    apellidos:"",
+    email:"",
+  }
+  const [formulario,setFormulario] = useState(initialState)
+  const [mostrar, setMostrar] = useState(initialState)
+
+  const handleInput=(e)=>{
+    const {name,value} = e.target
+    setFormulario((prevState)=>({
+      ...prevState,
+      [name]:value
+    }))
+  }
+  const hacerClick =()=>{
+    setMostrar(formulario)
+  }
+  const {nombre,apellidos,email} = mostrar
+  return (
+    <>
+      <h1>{titulo}</h1>
+      <form>
+        <label>
+          Nombre:
+          <input
+            name='nombre'
+            value={formulario.nombre}
+            onChange={handleInput}
+          />
+        </label>
+      </form>
+      <button onClick={hacerClick}>Mostrar</button>
+      <p>{nombre}</p>
+    </>
+  );
+}
+export default Usarytirar
+  /*
  import React, { useState } from "react";
 
  const Usarytirar =({titulo})=>{
@@ -49,7 +90,7 @@
   )
  }
  export default Usarytirar
- /*
+
  import React, { useState } from "react";
 const Usarytirar = ({ titulo }) => {
    const initialState = {

@@ -23,12 +23,14 @@ const notes = [
 
 const Note =({id, content, date})=>{
   return (
-    <li key={id}>
-      <p>{content}</p>
-      <small>
-        <time>{date}</time>
-      </small>
-    </li>
+    <ul key={id}>
+      <li key={id}>
+        <p>{content}</p>
+        <small>
+          <time>{date}</time>
+        </small>
+      </li>
+    </ul>
   );
 }
 const BootCamp4 = ({titulo}) => {

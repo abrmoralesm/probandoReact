@@ -1,4 +1,30 @@
 import React, {useState} from "react";
+
+const ComponentePrueba2 =({titulo})=>{
+     const APIUrl = "https://api.chucknorris.io/jokes/random";
+
+     const [fact, setFact] = useState('');
+     const [buttonMostrar, setButtonMostrar] = useState('Ver chiste')
+
+     const chisteRandom=()=>{
+      fetch(APIUrl)
+      .then(res=>res.json())
+      .then(data=>{
+        setFact(data.value)
+        setButtonMostrar('Otro')
+      })
+     }
+  return(
+    <>
+    <h1>{titulo} </h1>
+    {fact}
+    <button onClick={chisteRandom}>{buttonMostrar}</button>
+    </>
+  )
+}
+export default ComponentePrueba2
+
+/*import React, {useState} from "react";
 const ComponentePrueba2 =({titulo})=>{
    const APIUrl = "https://api.chucknorris.io/jokes/random";
    const [fact, setFact] = useState(null);
@@ -12,6 +38,7 @@ const ComponentePrueba2 =({titulo})=>{
       setButtonText("OTRO");
     })
    }
+
   return (
     <>
       <h1>{titulo}</h1>
@@ -22,7 +49,7 @@ const ComponentePrueba2 =({titulo})=>{
 }
 export default ComponentePrueba2;
 
-/* import React, {useState, useEffect} from "react";
+ import React, {useState, useEffect} from "react";
 
 
 const APIUrl = "https://catfact.ninja/fact";
@@ -45,6 +72,7 @@ const ComponentePrueba2 = ({titulo}) =>{
             const threeFirstWords = fact.split(" ", 3).join(" ");
             console.log(threeFirstWords);
             const CAT_END_POINT = `${CAT_PREFIX_IMAGE_URL}/cat/says/${threeFirstWords}?size=50&color=red&json=true`;
+a
 
             fetch(CAT_END_POINT)
               .then((res) => res.json())

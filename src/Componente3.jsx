@@ -5,7 +5,7 @@ const Componente3 = ({ titulo }) => {
     <>
       <h1>{titulo}</h1>
       {datos.map(({ id, nombre, edad }) => (
-        <ul>
+        <ul key={id}>
           <li key={id}>
             {nombre.slice(0, 2)}
             {nombre.charAt(2).toUpperCase()}
